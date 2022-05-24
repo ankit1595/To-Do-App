@@ -2,31 +2,36 @@
 
 :root {
   --primary-color: rgb(116, 115, 115);
+  --text-color: #f2f2f2;
+  --border-gray: #b1b1b1;
+  --btn-gray: rgb(65, 63, 63);
 }
 
 * {
   box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: var(--primary-color);
 }
 
 body {
   max-width: 650px;
   margin: auto;
-  color: var(--primary-color);
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 header,
-h1,
-hr {
+h1 {
   font-family: "Roboto Slab", serif;
   text-align: center;
   margin-top: 25px;
   margin-bottom: 0;
 }
 
+hr {
+  margin: 0;
+}
+
 /* main {
-  padding: 25px;
-  margin-top: 0;
+  margin: auto;
 } */
 
 .form-details {
@@ -40,20 +45,90 @@ input {
   -ms-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  padding: 12px;
-  border-radius: 3px;
+  padding: 0 12px 12px 0;
   width: 100%;
-  font-size: 14px;
+  font-size: 12px;
   outline: none;
-  padding-left: 0;
 }
 
+/* highlight parent div when input/select/date element focused */
 .description:focus-within,
 .description input:focus {
-  background-color: #f2f2f2;
+  background-color: var(--text-color);
 }
 
 .form-details label {
   font-weight: bold;
   font-size: smaller;
+}
+
+.multi-field {
+  display: flex;
+  border-bottom: 1px solid;
+  border-color: var(--border-gray);
+}
+
+.category {
+  border-right: 1px solid;
+  border-color: var(--border-gray);
+}
+
+.category select {
+  width: 100%;
+  border: none;
+  padding: 0 12px 12px 0;
+  width: 100%;
+  font-size: 12px;
+  outline: none;
+}
+
+/* highlight parent div when input/select/date element focused */
+.category:focus-within,
+.category select:focus {
+  background-color: var(--text-color);
+}
+
+/* try to change bg-color of option on hover but didn't worked */
+/* select.highlight option:hover {
+  box-shadow: 0 0 10px 100px #1882a8 inset;
+} */
+
+/* highlight parent div when input/select/date element focused */
+.due-date:focus-within,
+.due-date input:focus {
+  background-color: var(--text-color);
+}
+
+/* to remove calendra symbol */
+/* #due-date::-webkit-inner-spin-button,
+#due-date::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  -webkit-appearance: none;
+} */
+
+/* BUTTONS STYLING */
+.btn-container {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  padding: 30px;
+  border-bottom: 1px solid gray;
+  border-color: var(--border-gray);
+}
+
+button {
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  display: block;
+}
+
+.add-btn button {
+  background-color: var(--btn-gray);
+}
+
+.delete-btn button {
+  background-color: red;
 }

@@ -5,14 +5,14 @@
   </head>
   <body>
     <header>
-      <h1>
-        TODO App
-        <hr />
-      </h1>
+      <h1>TODO App</h1>
     </header>
+    <hr />
 
     <main>
       <form action="/" method="post">
+        <!-- ||FORM DETAILS -->
+        <!-- DESCRIPTION -->
         <div class="form-details description">
           <label>
             DESCRIPTION
@@ -21,10 +21,68 @@
               type="text"
               name="description"
               placeholder="What do you need to do?"
+              required
             />
           </label>
         </div>
+        <hr />
+        <!-- 2ND DETAILS ROW FLEX -->
+        <div class="multi-field">
+          <!-- CATEGORY -->
+          <div class="form-details category">
+            <label>
+              CATEGORY
+              <br />
+              <select name="category" class="highlight">
+                <option value="">Choose a category</option>
+                <option value="personal">Personal</option>
+                <option value="Work">Work</option>
+                <option value="Web-Dev">Web-Dev</option>
+                <option value="Shopping">Shopping</option>
+                <option value="Others">Others</option>
+              </select>
+            </label>
+          </div>
+          <!-- DUE-DATE -->
+          <div class="form-details due-date">
+            <label for="due-date">
+              DUE DATE
+              <br />
+              <input
+                type="date"
+                min="2022-01-01"
+                max="2050-12-31"
+                name="due-date"
+                id="due-date"
+                required
+              />
+            </label>
+          </div>
+        </div>
+        <!-- INPUT FIELDS END -->
+
+        <!-- BUTTONS -->
+        <div class="btn-container">
+          <div class="add-btn">
+            <button type="submit">
+              <i style="color: white" class="fa-solid fa-plus"></i>
+              ADD TASK
+            </button>
+          </div>
+
+          <div class="delete-btn">
+            <button>
+              <i style="color: white" class="fa-regular fa-trash-can"></i>
+              DELETE TASK
+            </button>
+          </div>
+        </div>
       </form>
     </main>
+
+    <script
+      src="https://kit.fontawesome.com/310b61f3af.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
