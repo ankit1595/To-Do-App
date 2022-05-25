@@ -3,6 +3,7 @@ const port = 8000;
 const app = express();
 
 const db = require("./config/mongoose");
+const TaskDetails = require("./models/task_details");
 
 //for static files like css, js, etc
 app.use(express.static("./assets"));
@@ -42,8 +43,15 @@ app.get("/", function (req, res) {
 });
 
 app.post("/add-task", function (req, res) {
-  taskList.push(req.body);
-  return res.redirect("back");
+  // taskList.push(req.body);
+  TaskDetails.create(req.body, function (err, newTask) {
+    if (err) {
+      console.log("Error in adding task, error: ", err);
+      return;
+    }
+    console.log("Added Task: ", newTask);
+    return res.redirect("back");
+  });
 });
 
 app.listen(port, function (err) {
