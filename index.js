@@ -12,6 +12,30 @@ app.use("/", require("./routes/"));
 app.set("view engine", "ejs");
 app.set("views", "./views");
 
+const taskList = [
+  {
+    description: "Make a TODO App",
+    category: "Web-Dev",
+    date: "2022-05-25",
+  },
+  {
+    description: "Shopping for clothes",
+    category: "Shopping",
+    date: "2022-05-27",
+  },
+  {
+    description: "Take haircut",
+    category: "Personal",
+    date: "2022-05-31",
+  },
+];
+
+app.get("/", function (req, res) {
+  return res.render("home", {
+    task_list: taskList,
+  });
+});
+
 app.listen(port, function (err) {
   if (err) {
     console.log("Error in connecting with Server");

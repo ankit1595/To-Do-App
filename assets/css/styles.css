@@ -39,7 +39,7 @@ hr {
   padding: 10px;
 }
 
-input {
+.form-details input {
   border: none;
   -webkit-appearance: none;
   -ms-appearance: none;
@@ -80,6 +80,7 @@ input {
   width: 100%;
   font-size: 12px;
   outline: none;
+  cursor: pointer;
 }
 
 /* highlight parent div when input/select/date element focused */
@@ -93,6 +94,9 @@ input {
   box-shadow: 0 0 10px 100px #1882a8 inset;
 } */
 
+.due-date input {
+  cursor: pointer;
+}
 /* highlight parent div when input/select/date element focused */
 .due-date:focus-within,
 .due-date input:focus {
@@ -131,4 +135,30 @@ button {
 
 .delete-btn button {
   background-color: red;
+}
+
+/* TASK CARD STYLING */
+ul {
+  list-style-type: none;
+  padding-inline-start: 0px;
+}
+
+#mark-done {
+  width: 10%;
+  margin: 10px;
+}
+
+input[type="checkbox"]:checked + label {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.task-card {
+  display: flex;
+  gap: 10px;
+}
+
+.left {
+  display: flex;
+  width: 80%;
 }

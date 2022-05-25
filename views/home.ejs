@@ -10,7 +10,7 @@
     <hr />
 
     <main>
-      <form action="/" method="post">
+      <form action="/add-task" method="post">
         <!-- ||FORM DETAILS -->
         <!-- DESCRIPTION -->
         <div class="form-details description">
@@ -52,7 +52,7 @@
                 type="date"
                 min="2022-01-01"
                 max="2050-12-31"
-                name="due-date"
+                name="date"
                 id="due-date"
                 required
               />
@@ -78,6 +78,29 @@
           </div>
         </div>
       </form>
+      <!-- END OF FORM -->
+
+      <ul>
+        <li>
+          <div class="task-card">
+            <!-- card LEFT details -->
+            <div class="left">
+              <input type="checkbox" name="markDone" id="mark-done" />
+              <label class="left-details" for="mark-done">
+                <div>Task description</div>
+                <small>
+                  <i class="fa-solid fa-calendar-days"></i>
+                  May 25, 2022
+                </small>
+              </label>
+            </div>
+            <!-- card RIGHT details -->
+            <div class="right-details">
+              <div class="cat-tag">PERSONAL</div>
+            </div>
+          </div>
+        </li>
+      </ul>
     </main>
 
     <script
