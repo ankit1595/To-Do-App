@@ -36,9 +36,34 @@ const taskList = [
 ];
 
 app.get("/", function (req, res) {
-  return res.render("home", {
-    title: "Home",
-    task_list: taskList,
+  TaskDetails.find({}, function (err, tasks) {
+    if (err) {
+      console.log("Error in getting tasks from db, error: ", err);
+      return;
+    }
+    // ||EFFORTS TO REMOVE TIME AND CONVERT DATE FORMAT===> SOLVED USING EJS
+    // tasks.forEach((task) => {
+    //   let taskDate = new Date(task.date).toDateString();
+    //   let updTask = { ...task, date: taskDate };
+    //   console.log(updTask);
+    // });
+    // let newTasks = tasks.map((collection) => {
+    //   const task = collection._doc;
+    //   const date = new Date(task.date);
+    //   const [month, day, year] = [
+    //     date.getMonth(),
+    //     date.getDate(),
+    //     date.getFullYear(),
+    //   ];
+    //   return { date: `${month} ${day}, ${year}`, ...task };
+    // });
+
+    // console.log(newTasks);
+
+    return res.render("home", {
+      title: "Home",
+      task_list: tasks,
+    });
   });
 });
 
