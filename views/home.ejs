@@ -87,7 +87,7 @@
             <div class="left">
               <input type="checkbox" name="markDone" id="mark-done" />
               <label class="left-details" for="mark-done">
-                <div>Task description</div>
+                <div style="padding-bottom: 5px">Task description</div>
                 <small>
                   <i class="fa-solid fa-calendar-days"></i>
                   May 25, 2022
@@ -100,6 +100,28 @@
             </div>
           </div>
         </li>
+        <% for(let i of task_list) { %>
+        <li>
+          <div class="task-card">
+            <!-- card LEFT details -->
+            <div class="left">
+              <input type="checkbox" name="markDone" id="mark-done" />
+              <label class="left-details" for="mark-done">
+                <div style="padding-bottom: 5px"><%= i.description %></div>
+                <small>
+                  <i class="fa-solid fa-calendar-days"></i>
+                  <!-- May 25, 2022 -->
+                  <%= i.date %>
+                </small>
+              </label>
+            </div>
+            <!-- card RIGHT details -->
+            <div class="right-details">
+              <div class="cat-tag"><%= i.category %></div>
+            </div>
+          </div>
+        </li>
+        <% } %>
       </ul>
     </main>
 

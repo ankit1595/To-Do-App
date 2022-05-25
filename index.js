@@ -6,7 +6,7 @@ const app = express();
 app.use(express.static("./assets"));
 
 //use express router
-app.use("/", require("./routes/"));
+// app.use("/", require("./routes/"));
 
 //set up the view engine
 app.set("view engine", "ejs");
@@ -32,6 +32,7 @@ const taskList = [
 
 app.get("/", function (req, res) {
   return res.render("home", {
+    title: "Home",
     task_list: taskList,
   });
 });

@@ -34,6 +34,10 @@ hr {
   margin: auto;
 } */
 
+form {
+  margin: 0;
+}
+
 .form-details {
   width: 100%;
   padding: 10px;
@@ -141,6 +145,7 @@ button {
 ul {
   list-style-type: none;
   padding-inline-start: 0px;
+  margin: 0;
 }
 
 #mark-done {
@@ -155,10 +160,22 @@ input[type="checkbox"]:checked + label {
 
 .task-card {
   display: flex;
-  gap: 10px;
+  padding: 10px;
+  border-bottom: 1px solid;
+  border-color: var(--border-gray);
+  align-items: center;
 }
 
 .left {
   display: flex;
   width: 80%;
+}
+
+.cat-tag {
+  width: 80px;
+  font-size: 12px;
+  padding: 5px;
+  background-color: yellowgreen;
+  color: white;
+  text-align: center;
 }
