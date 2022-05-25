@@ -2,6 +2,8 @@ const express = require("express");
 const port = 8000;
 const app = express();
 
+const db = require("./config/mongoose");
+
 //for static files like css, js, etc
 app.use(express.static("./assets"));
 
@@ -11,6 +13,8 @@ app.use(express.static("./assets"));
 //set up the view engine
 app.set("view engine", "ejs");
 app.set("views", "./views");
+// parse form data into an object
+app.use(express.urlencoded());
 
 const taskList = [
   {
@@ -35,6 +39,11 @@ app.get("/", function (req, res) {
     title: "Home",
     task_list: taskList,
   });
+});
+
+app.post("/add-task", function (req, res) {
+  taskList.push(req.body);
+  return res.redirect("back");
 });
 
 app.listen(port, function (err) {
