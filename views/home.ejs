@@ -35,7 +35,7 @@
               <br />
               <select name="category" class="highlight">
                 <option value="">Choose a category</option>
-                <option value="personal">Personal</option>
+                <option value="Personal">Personal</option>
                 <option value="Work">Work</option>
                 <option value="Web-Dev">Web-Dev</option>
                 <option value="Shopping">Shopping</option>
@@ -69,21 +69,25 @@
               ADD TASK
             </button>
           </div>
-
           <div class="delete-btn">
-            <button>
+            <a
+              id="del-btn"
+              style="text-decoration: none"
+              href="/delete-task/?id=<>"
+            >
+              <!-- <button> -->
               <i style="color: white" class="fa-regular fa-trash-can"></i>
               DELETE TASK
-            </button>
+              <!-- </button> -->
+            </a>
           </div>
         </div>
       </form>
       <!-- END OF FORM -->
 
       <ul>
-        <li>
+        <!-- <li>
           <div class="task-card">
-            <!-- card LEFT details -->
             <div class="left">
               <input type="checkbox" name="markDone" id="mark-done" />
               <label class="left-details" for="mark-done">
@@ -94,19 +98,24 @@
                 </small>
               </label>
             </div>
-            <!-- card RIGHT details -->
+
             <div class="right-details">
               <div class="cat-tag">PERSONAL</div>
             </div>
           </div>
-        </li>
+        </li> -->
         <% for(let i of task_list) { %>
         <li>
           <div class="task-card">
             <!-- card LEFT details -->
             <div class="left">
-              <input type="checkbox" name="markDone" id="mark-done" />
-              <label class="left-details" for="mark-done">
+              <input
+                type="checkbox"
+                name="markDone"
+                id="<%= i._id %>"
+                value="<%= i._id %>"
+              />
+              <label class="left-details" for="<%= i._id %>">
                 <div style="padding-bottom: 5px"><%= i.description %></div>
                 <small>
                   <i class="fa-solid fa-calendar-days"></i>
@@ -131,5 +140,6 @@
       src="https://kit.fontawesome.com/310b61f3af.js"
       crossorigin="anonymous"
     ></script>
+    <script src="/js/script.js"></script>
   </body>
 </html>

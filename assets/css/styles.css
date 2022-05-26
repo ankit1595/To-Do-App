@@ -124,6 +124,7 @@ form {
   border-color: var(--border-gray);
 }
 
+a,
 button {
   color: white;
   font-size: 20px;
@@ -131,13 +132,14 @@ button {
   border: none;
   border-radius: 3px;
   display: block;
+  cursor: pointer;
 }
 
 .add-btn button {
   background-color: var(--btn-gray);
 }
 
-.delete-btn button {
+.delete-btn a {
   background-color: red;
 }
 

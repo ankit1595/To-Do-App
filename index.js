@@ -79,6 +79,18 @@ app.post("/add-task", function (req, res) {
   });
 });
 
+app.get("/delete-task", function (req, res) {
+  let id = req.query.id;
+
+  TaskDetails.findByIdAndDelete(id, function (err) {
+    if (err) {
+      console.log("Error in deleting task from database");
+      return;
+    }
+    return res.redirect("back");
+  });
+});
+
 app.listen(port, function (err) {
   if (err) {
     console.log("Error in connecting with Server");
